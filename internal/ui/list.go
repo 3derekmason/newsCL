@@ -240,7 +240,7 @@ func (m Model) viewList() string {
 		b.WriteString(m.list.spinner.View() + " " + mutedStyle.Render("Loading…"))
 		b.WriteString("\n\n")
 		b.WriteString(helpStyle.Render("esc back"))
-		return boxStyle.Width(60).Render(b.String())
+		return boxStyle.Width(100).Render(b.String())
 	}
 
 	pageIDs := pageSlice(m.list.ids, m.list.page, m.list.perPage)
@@ -248,7 +248,7 @@ func (m Model) viewList() string {
 		b.WriteString(mutedStyle.Render("Nothing to show right now."))
 		b.WriteString("\n\n")
 		b.WriteString(helpStyle.Render("esc back"))
-		return boxStyle.Width(60).Render(b.String())
+		return boxStyle.Width(100).Render(b.String())
 	}
 
 	for i, id := range pageIDs {
@@ -273,15 +273,15 @@ func (m Model) viewList() string {
 	}
 
 	b.WriteString("\n\n")
-	b.WriteString(helpStyle.Render("↑/↓ select  •  ←/→ page  •  enter open  •  esc back"))
+	b.WriteString(helpStyle.Render("[↑/↓] select   [←/→] page   [enter] open   [esc] back"))
 
-	return boxStyle.Width(60).Render(b.String())
+	return boxStyle.Width(100).Render(b.String())
 }
 
 // formats a single row in the list: title, then score/comments (or
 // just "[job]" for job postings, which don't have scores or comments).
 func itemLine(item hn.Item) string {
-	title := truncate(item.Title, 46)
+	title := truncate(item.Title, 80)
 	if item.IsJob() {
 		return title + mutedStyle.Render("  [job]")
 	}

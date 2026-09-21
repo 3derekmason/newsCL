@@ -64,7 +64,7 @@ func (m Model) viewHome() string {
 	}
 
 	b.WriteString("\n")
-	b.WriteString(helpStyle.Render("↑/↓ navigate  •  enter select  •  q quit"))
+	b.WriteString(helpStyle.Render("[↑/↓] navigate  [enter] select   [q] quit"))
 
 	return boxStyle.Render(b.String())
 }

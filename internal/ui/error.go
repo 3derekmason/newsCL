@@ -39,7 +39,7 @@ func (m Model) viewError() string {
 	b.WriteString("\n\n")
 	b.WriteString(errorStyle.Render(m.err.message))
 	b.WriteString("\n\n")
-	b.WriteString(helpStyle.Render("r retry  •  esc back to home  •  q quit"))
+	b.WriteString(helpStyle.Render("[r] retry   [esc] back to home   [q] quit"))
 
 	return boxStyle.Width(60).Render(b.String())
 }

@@ -116,7 +116,7 @@ func (m Model) viewModalDialog() string {
 	}
 
 	var b strings.Builder
-	b.WriteString(titleStyle.Render(truncate(item.Title, 46)))
+	b.WriteString(titleStyle.Render(truncate(item.Title, 64)))
 	if d := domain(item.URL); d != "" {
 		b.WriteString("\n" + mutedStyle.Render(d))
 	}
@@ -136,7 +136,7 @@ func (m Model) viewModalDialog() string {
 	}
 
 	b.WriteString("\n")
-	b.WriteString(helpStyle.Render("↑/↓ select  •  enter open  •  esc close"))
+	b.WriteString(helpStyle.Render("[↑/↓] select   [enter] open   [esc] close"))
 
-	return dialogStyle.Width(44).Render(b.String())
+	return dialogStyle.Width(80).Render(b.String())
 }
