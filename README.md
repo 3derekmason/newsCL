@@ -25,7 +25,7 @@ public [Hacker News API](https://github.com/HackerNews/API).
 
 ## How to start
 
-From `../newsCL`:
+From `~/newsCL`:
 
 ```sh
 go run .
