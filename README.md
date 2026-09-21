@@ -4,6 +4,10 @@ A small terminal UI for browsing current Hacker News top posts and jobs, built w
 [Lip Gloss](https://charm.land/lipgloss) v2. Data comes straight from the
 public [Hacker News API](https://github.com/HackerNews/API).
 
+![home](./assets/home.png)
+
+![post list](./assets/list.png)
+
 ## Features
 
 - **Home menu**
