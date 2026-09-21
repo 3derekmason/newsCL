@@ -8,7 +8,7 @@ import (
 
 // the state for the error screen
 type errModel struct {
-	message string // the error message
+	message string  // the error message
 	section section // the section to retry
 }
 
@@ -24,7 +24,7 @@ func (m Model) updateError(msg tea.KeyPressMsg) (Model, tea.Cmd) {
 	switch msg.String() {
 	case "r":
 		return m.enterList(m.err.section)
-	case "esc", "q":
+	case "left", "q":
 		m.screen = screenHome
 	case "ctrl+c":
 		return m, tea.Quit
@@ -35,11 +35,11 @@ func (m Model) updateError(msg tea.KeyPressMsg) (Model, tea.Cmd) {
 func (m Model) viewError() string {
 	var b strings.Builder
 
-	b.WriteString(titleStyle.Render("Something went wrong"))
+	b.WriteString(titleStyle.Render("Oops! Something went wrong"))
 	b.WriteString("\n\n")
 	b.WriteString(errorStyle.Render(m.err.message))
 	b.WriteString("\n\n")
-	b.WriteString(helpStyle.Render("[r] retry   [esc] back to home   [q] quit"))
+	b.WriteString(helpStyle.Render("[r] retry   [←] back to home   [q] quit"))
 
 	return boxStyle.Width(60).Render(b.String())
 }

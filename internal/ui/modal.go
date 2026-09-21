@@ -48,7 +48,7 @@ func (m Model) updateModal(msg tea.Msg) (Model, tea.Cmd) {
 
 	case tea.KeyPressMsg:
 		switch msg.String() {
-		case "esc", "q":
+		case "left", "q":
 			m.screen = screenList
 		case "ctrl+c":
 			return m, tea.Quit
@@ -76,7 +76,7 @@ func (m Model) updateModal(msg tea.Msg) (Model, tea.Cmd) {
 	return m, nil
 }
 
-// composes the detail popup on top of the list screen behind it, 
+// composes the detail popup on top of the list screen behind it,
 // using Lip Gloss v2's canvas/layer compositing
 func (m Model) viewModal() string {
 	background := m.viewList()
@@ -136,7 +136,7 @@ func (m Model) viewModalDialog() string {
 	}
 
 	b.WriteString("\n")
-	b.WriteString(helpStyle.Render("[↑/↓] select   [enter] open   [esc] close"))
+	b.WriteString(helpStyle.Render("[↑/↓] select   [enter] open   [←] back"))
 
 	return dialogStyle.Width(80).Render(b.String())
 }

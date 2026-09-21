@@ -53,7 +53,7 @@ func (m Model) updateHome(msg tea.KeyPressMsg) (Model, tea.Cmd) {
 func (m Model) viewHome() string {
 	var b strings.Builder
 
-	b.WriteString(titleStyle.Render("Hacker News, in your terminal"))
+	b.WriteString(titleStyle.Render("NewsCL: Hacker News Terminal"))
 	b.WriteString("\n")
 	b.WriteString(subtitleStyle.Render("Browse the current top posts and jobs from Hacker News."))
 	b.WriteString("\n\n")
